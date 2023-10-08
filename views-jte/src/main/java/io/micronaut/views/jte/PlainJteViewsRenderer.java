@@ -66,13 +66,13 @@ public class PlainJteViewsRenderer<T> extends JteViewsRenderer<T, HttpRequest<?>
         }
 
         @Override
-        public Writer getWriter() {
-            return delegate.getWriter();
+        public void writeContent(String value) {
+            delegate.writeContent(value);
         }
 
         @Override
-        public void writeContent(String value) {
-            delegate.writeContent(value);
+        public void writeContent(String value, int beginIndex, int endIndex) {
+            delegate.writeContent(value, beginIndex, endIndex);
         }
 
         @Override

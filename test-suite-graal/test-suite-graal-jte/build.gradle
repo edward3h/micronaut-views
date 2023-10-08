@@ -6,12 +6,13 @@ plugins {
 dependencies {
     implementation(projects.testSuiteGraal.testSuiteGraalCommon)
     implementation(projects.micronautViewsJte)
+    jteGenerate(libs.managed.jte.native)
 }
 
 jte {
     sourceDirectory = file('src/main/resources/views').toPath()
     generate()
-    generateNativeImageResources = false
+    jteExtension("gg.jte.nativeimage.NativeResourcesExtension")
 }
 
 tasks.getByName("inspectRuntimeClasspath") {
